@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Tic Tac Toe</h1>
+    <h2 id="winner"></h2>
+    <div class="game">
+      <div class="row">
+        <button type="button" onclick="btn(btn1)" id="btn1">&nbsp;&nbsp;</button>
+        <button type="button" onclick="btn(btn2)" id="btn2">&nbsp;&nbsp;</button>
+        <button type="button" onclick="btn(btn3)" id="btn3">&nbsp;&nbsp;</button>
+      </div>
+      <div class="row">
+        <button type="button" onclick="btn(btn4)" id="btn4">&nbsp;&nbsp;</button>
+        <button type="button" onclick="btn(btn5)" id="btn5">&nbsp;&nbsp;</button>
+        <button type="button" onclick="btn(btn6)" id="btn6">&nbsp;&nbsp;</button>
+      </div>
+      <div class="row">
+        <button type="button" onclick="btn(btn7)" id="btn7">&nbsp;&nbsp;</button>
+        <button type="button" onclick="btn(btn8)" id="btn8">&nbsp;&nbsp;</button>
+        <button type="button" onclick="btn(btn9)" id="btn9">&nbsp;&nbsp;</button>
+      </div>
+    </div>
+    <button type="button" onclick="reset()" id="reset">Reset</button>
+    <ul>
+      <li>X : <span id="x-wins">0</span></li>
+      <li>O : <span id="o-wins">0</span></li>
+      <li>Tie : <span id="tie">0</span></li>
+    </ul>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

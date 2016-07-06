@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.game {
+   padding-bottom: 5px;
+}
+
+.row button {
+  border: none;
+  color: white;
+  padding: 25px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.row {
+  padding: 10px 0;
+}

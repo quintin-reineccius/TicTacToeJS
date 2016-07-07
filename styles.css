@@ -24,8 +24,8 @@ ul {
 .row button {
   border: none;
   color: white;
-  padding: 25px 30px;
-  font-size: 16px;
+  padding: 15px 25px;
+  font-size: 30px;
   cursor: pointer;
   margin: 10px;
 }

@@ -23,17 +23,10 @@ function isWin(move){
 }
 
 function isTie(){
-  var buttonCheck = []
-  var isThereATie
-
-  for(let button of btn){
-    if(button.disabled === true){
-      buttonCheck.push(true)
-    }
-  }
-  if(buttonCheck.length === 9){
-    isThereATie = true
-  }
+  var isThereATie = btn
+    .map(button => button.disabled ? true : null)
+    .filter(i => i)
+    .length === 9
 
   if (isThereATie){
     ties += 1;

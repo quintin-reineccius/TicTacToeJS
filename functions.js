@@ -1,22 +1,13 @@
 function isWin(move){
-  if ( btn[0].innerHTML === "x" && btn[1].innerHTML === "x" && btn[2].innerHTML === "x" ||
-       btn[3].innerHTML === "x" && btn[4].innerHTML === "x" && btn[5].innerHTML === "x" ||
-       btn[6].innerHTML === "x" && btn[7].innerHTML === "x" && btn[8].innerHTML === "x" ||
-       btn[0].innerHTML === "x" && btn[3].innerHTML === "x" && btn[6].innerHTML === "x" ||
-       btn[1].innerHTML === "x" && btn[4].innerHTML === "x" && btn[7].innerHTML === "x" ||
-       btn[2].innerHTML === "x" && btn[5].innerHTML === "x" && btn[8].innerHTML === "x" ||
-       btn[0].innerHTML === "x" && btn[4].innerHTML === "x" && btn[8].innerHTML === "x" ||
-       btn[2].innerHTML === "x" && btn[4].innerHTML === "x" && btn[6].innerHTML === "x" ){
-    whoWin("x");
-  }else if (btn[0].innerHTML === "o" && btn[1].innerHTML === "o" && btn[2].innerHTML === "o" ||
-            btn[3].innerHTML === "o" && btn[4].innerHTML === "o" && btn[5].innerHTML === "o" ||
-            btn[6].innerHTML === "o" && btn[7].innerHTML === "o" && btn[8].innerHTML === "o" ||
-            btn[0].innerHTML === "o" && btn[3].innerHTML === "o" && btn[6].innerHTML === "o" ||
-            btn[1].innerHTML === "o" && btn[4].innerHTML === "o" && btn[7].innerHTML === "o" ||
-            btn[2].innerHTML === "o" && btn[5].innerHTML === "o" && btn[8].innerHTML === "o" ||
-            btn[0].innerHTML === "o" && btn[4].innerHTML === "o" && btn[8].innerHTML === "o" ||
-            btn[2].innerHTML === "o" && btn[4].innerHTML === "o" && btn[6].innerHTML === "o") {
-    whoWin("o");
+  if (btn[0].innerHTML === move && btn[1].innerHTML === move && btn[2].innerHTML === move ||
+      btn[3].innerHTML === move && btn[4].innerHTML === move && btn[5].innerHTML === move ||
+      btn[6].innerHTML === move && btn[7].innerHTML === move && btn[8].innerHTML === move ||
+      btn[0].innerHTML === move && btn[3].innerHTML === move && btn[6].innerHTML === move ||
+      btn[1].innerHTML === move && btn[4].innerHTML === move && btn[7].innerHTML === move ||
+      btn[2].innerHTML === move && btn[5].innerHTML === move && btn[8].innerHTML === move ||
+      btn[0].innerHTML === move && btn[4].innerHTML === move && btn[8].innerHTML === move ||
+      btn[2].innerHTML === move && btn[4].innerHTML === move && btn[6].innerHTML === move) {
+    whoWin(move);
   } else {
     isTie();
   }

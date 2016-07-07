@@ -20,10 +20,5 @@ function button(number) {
   btn[number].innerHTML = currentValue;
   btn[number].disabled = true;
 
-  isWin();
-
-  // if (isWin(move)){
-  //   player = whoWon();
-  //   gameOver(player);
-  // }
+  isWin(currentValue);
 }

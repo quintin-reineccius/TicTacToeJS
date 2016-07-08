@@ -18,18 +18,27 @@ ul {
 }
 
 .game {
-   padding-bottom: 5px;
+   padding: 15px 0;
 }
 
 .row button {
   border: none;
-  color: white;
-  padding: 15px 25px;
-  font-size: 30px;
+  color: #fff;
+  background-color: #b5b5b5;
+  /*color: #000;
+  background-image: URL(./slack-imgs.com.gif);
+  background-size: 193px;
+  background-position: center;*/
+  height: 70px;
+  width: 70px;
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 700;
   cursor: pointer;
-  margin: 10px;
-}
-
-.row {
-  padding: 10px 0;
+  margin: 8px 5px;
+  text-align: center;
+  display: inline-block;
+  outline: none;
+  box-sizing: border-box;
+  vertical-align: top;
 }

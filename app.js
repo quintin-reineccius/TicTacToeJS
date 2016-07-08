@@ -1,24 +1,21 @@
-var currentValue = 'x'
-var oWins = 0;
-var xWins = 0;
-var ties = 0;
-
-var btn = [ ...document.querySelectorAll("button") ];
-var oCounter = document.getElementById('o-wins');
-var xCounter = document.getElementById('x-wins');
-var tieCounter = document.getElementById('tie');
 var winner = document.getElementById('winner');
+var buttons = [ ...document.querySelectorAll(".row > button") ];
+var currentValue = 'X'
+var wins = {
+  X: 0,
+  O: 0,
+  ties: 0
+}
 
-
-function button(number) {
-  if(currentValue === 'x'){
-    currentValue = 'o'
+function userMove(number) {
+  if(currentValue === 'X'){
+    currentValue = 'O'
   }else {
-    currentValue = 'x'
+    currentValue = 'X'
   }
 
-  btn[number].innerHTML = currentValue;
-  btn[number].disabled = true;
+  buttons[number].innerHTML = currentValue;
+  buttons[number].disabled = true;
 
-  isWin(currentValue);
+  checkWin(currentValue);
 }

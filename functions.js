@@ -1,68 +1,53 @@
-function isWin(move){
-  if (btn[0].innerHTML === move && btn[1].innerHTML === move && btn[2].innerHTML === move ||
-      btn[3].innerHTML === move && btn[4].innerHTML === move && btn[5].innerHTML === move ||
-      btn[6].innerHTML === move && btn[7].innerHTML === move && btn[8].innerHTML === move ||
-      btn[0].innerHTML === move && btn[3].innerHTML === move && btn[6].innerHTML === move ||
-      btn[1].innerHTML === move && btn[4].innerHTML === move && btn[7].innerHTML === move ||
-      btn[2].innerHTML === move && btn[5].innerHTML === move && btn[8].innerHTML === move ||
-      btn[0].innerHTML === move && btn[4].innerHTML === move && btn[8].innerHTML === move ||
-      btn[2].innerHTML === move && btn[4].innerHTML === move && btn[6].innerHTML === move) {
-    whoWin(move);
+function checkWin(move){
+  if (buttons[0].innerHTML === move && buttons[1].innerHTML === move && buttons[2].innerHTML === move ||
+      buttons[3].innerHTML === move && buttons[4].innerHTML === move && buttons[5].innerHTML === move ||
+      buttons[6].innerHTML === move && buttons[7].innerHTML === move && buttons[8].innerHTML === move ||
+      buttons[0].innerHTML === move && buttons[3].innerHTML === move && buttons[6].innerHTML === move ||
+      buttons[1].innerHTML === move && buttons[4].innerHTML === move && buttons[7].innerHTML === move ||
+      buttons[2].innerHTML === move && buttons[5].innerHTML === move && buttons[8].innerHTML === move ||
+      buttons[0].innerHTML === move && buttons[4].innerHTML === move && buttons[8].innerHTML === move ||
+      buttons[2].innerHTML === move && buttons[4].innerHTML === move && buttons[6].innerHTML === move) {
+    checkWinner(move);
   } else {
-    isTie();
+    checkTie();
   }
 }
 
-function isTie(){
-  var isThereATie = btn
+function checkTie(){
+  var isThereATie = buttons
     .map(button => button.disabled ? true : null)
     .filter(i => i)
     .length === 9
 
   if (isThereATie){
-    ties += 1;
-    tieCounter.innerHTML = ties;
+    wins['ties'] += 1;
+    document.getElementById(`ties-holder`).innerHTML = wins['ties'];
     winner.innerHTML = 'Tie!';
   }
 }
 
-function whoWin(move){
-  if (move === 'x'){
-    xWins += 1;
-    xCounter.innerHTML = xWins;
-    winner.innerHTML = 'X Wins!';
-
-    for(var i = 0; i < 9; i++){
-      btn[i].disabled = true;
-    }
-  } else {
-    oWins += 1;
-    oCounter.innerHTML = oWins;
-    winner.innerHTML = 'O Wins!';
-
-    for(var i = 0; i < 9; i++){
-      btn[i].disabled = true;
-    }
-  }
+function checkWinner(move){
+  wins[move] += 1;
+  document.getElementById(`${move}-holder`).innerHTML = wins[move]
+  winner.innerHTML = `${move} Wins!`;
+  buttons.forEach(button => button.disabled = true );
 }
 
 function clearBoard(){
-  for(var i = 0; i < 9; i++){
-    btn[i].disabled = false;
-    btn[i].innerHTML = '&nbsp;&nbsp;';
-  }
+  buttons.forEach(button => {
+    button.disabled = false
+    button.innerHTML = ' '
+  })
 
   winner.innerHTML = ' ';
-  currentValue = 'x'
+  currentValue = 'X'
 }
 
 function clearScores(){
-  xWins = 0;
-  xCounter.innerHTML = xWins;
+  for(let i in wins){
+    wins[i] = 0;
+    document.getElementById(`${i}-holder`).innerHTML = wins[i];
+  }
 
-  oWins = 0;
-  oCounter.innerHTML = oWins;
-
-  ties = 0;
-  tieCounter.innerHTML = ties;
+  clearBoard();
 }

@@ -1,0 +1,26 @@
+{
+  "name": "tictactoejs",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe Game",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rampage1213/TicTacToeJS.git"
+  },
+  "author": "Quintin R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rampage1213/TicTacToeJS/issues"
+  },
+  "homepage": "https://github.com/rampage1213/TicTacToeJS#readme",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "webpack": "^1.13.1"
+  }
+}

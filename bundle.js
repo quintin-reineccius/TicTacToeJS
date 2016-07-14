@@ -84,10 +84,10 @@
 	var clearGameBoard = document.getElementById('clearBoard');
 	var clearGameScores = document.getElementById('clearScores');
 
-	function addOnclicks(currentValue) {
+	function addOnclicks() {
 	  _config.buttons.forEach(function (button, index) {
 	    button.onclick = function () {
-	      return (0, _userMove2.default)(index, currentValue);
+	      return (0, _userMove2.default)(index);
 	    };
 	  });
 
@@ -123,8 +123,10 @@
 	function userMove(number) {
 	  if (currentValue === 'X') {
 	    currentValue = 'O';
+	    _config.whosTurn.innerHTML = "X's turn";
 	  } else {
 	    currentValue = 'X';
+	    _config.whosTurn.innerHTML = "O's turn";
 	  }
 
 	  _config.buttons[number].innerHTML = currentValue;
@@ -156,7 +158,46 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	// let possibleWins = [
+	//   [0,1,2],
+	//   [3,4,5],
+	//   [6,7,8],
+	//   [0,3,6],
+	//   [1,4,7],
+	//   [2,5,8],
+	//   [0,4,8],
+	//   [2,4,6]
+	// ]
+
 	function checkWin(move) {
+
+	  // let currentValues = buttons.map((button, index) => {
+	  //   if(button.innerHTML === move) return index
+	  //   return null
+	  // })
+	  // .filter(item => item || item === 0)
+	  // console.log(currentValues)
+	  //
+	  //
+	  // if(possibleWins.includes(currentValues)){
+	  //   console.log(move + 'win')
+	  // }
+	  //
+	  // possibleWins.map(possibleWin => {
+	  //   console.log(possibleWin)
+	  //   if(possibleWin == currentValues){
+	  //     alert('win')
+	  //   }
+	  // })
+
+	  // possibleWins.map(possibleWin => {
+	  //   possibleWin.map(possibleW => {
+	  //     if(possibleW.includes(currentValues)){
+	  //       console.log('win')
+	  //     }
+	  //   })
+	  // })
+
 	  if (_config.buttons[0].innerHTML === move && _config.buttons[1].innerHTML === move && _config.buttons[2].innerHTML === move || _config.buttons[3].innerHTML === move && _config.buttons[4].innerHTML === move && _config.buttons[5].innerHTML === move || _config.buttons[6].innerHTML === move && _config.buttons[7].innerHTML === move && _config.buttons[8].innerHTML === move || _config.buttons[0].innerHTML === move && _config.buttons[3].innerHTML === move && _config.buttons[6].innerHTML === move || _config.buttons[1].innerHTML === move && _config.buttons[4].innerHTML === move && _config.buttons[7].innerHTML === move || _config.buttons[2].innerHTML === move && _config.buttons[5].innerHTML === move && _config.buttons[8].innerHTML === move || _config.buttons[0].innerHTML === move && _config.buttons[4].innerHTML === move && _config.buttons[8].innerHTML === move || _config.buttons[2].innerHTML === move && _config.buttons[4].innerHTML === move && _config.buttons[6].innerHTML === move) {
 	    (0, _checkWinner2.default)(move, _config.wins);
 	  } else {
@@ -190,18 +231,24 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 	module.exports = {
 	  buttons: [].concat(_toConsumableArray(document.querySelectorAll(".row > button"))),
 	  winner: document.getElementById('winner'),
+	  whosTurn: document.getElementById('whos-turn'),
 	  wins: {
 	    X: 0,
 	    O: 0,
 	    ties: 0
 	  }
+	  // board: [
+	  //   [0,0,0]
+	  //   [0,0,0]
+	  //   [0,0,0]
+	  // ]
 	};
 
 /***/ },

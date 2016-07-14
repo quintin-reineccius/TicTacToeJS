@@ -6,9 +6,9 @@ import { buttons } from './config'
 let clearGameBoard = document.getElementById('clearBoard')
 let clearGameScores = document.getElementById('clearScores')
 
-export default function addOnclicks(currentValue){
+export default function addOnclicks(){
   buttons.forEach((button, index) => {
-    button.onclick = () => userMove(index, currentValue)
+    button.onclick = () => userMove(index)
   })
 
   clearGameBoard.onclick = () => clearBoard()

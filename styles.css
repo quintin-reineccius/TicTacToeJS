@@ -12,6 +12,10 @@ h2 {
   font-weight: 400;
 }
 
+h2#whos-turn {
+    padding-bottom: 10px;
+}
+
 ul {
   list-style: none;
   padding: 0;

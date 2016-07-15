@@ -7,8 +7,19 @@ let clearGameBoard = document.getElementById('clearBoard')
 let clearGameScores = document.getElementById('clearScores')
 
 export default function addOnclicks(){
+  let row = 0
+  let count = 0
+
   buttons.forEach((button, index) => {
-    button.onclick = () => userMove(index)
+    if(count === 3) {
+      count = 0
+      row++
+    }
+    count++
+
+    button.onclick = function(index, row) {
+      return () => userMove(index, row)
+    }(index, row)
   })
 
   clearGameBoard.onclick = () => clearBoard()

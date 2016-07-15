@@ -69,11 +69,11 @@
 
 	var _userMove2 = _interopRequireDefault(_userMove);
 
-	var _clearBoard = __webpack_require__(7);
+	var _clearBoard = __webpack_require__(9);
 
 	var _clearBoard2 = _interopRequireDefault(_clearBoard);
 
-	var _clearScores = __webpack_require__(8);
+	var _clearScores = __webpack_require__(10);
 
 	var _clearScores2 = _interopRequireDefault(_clearScores);
 
@@ -85,10 +85,21 @@
 	var clearGameScores = document.getElementById('clearScores');
 
 	function addOnclicks() {
+	  var row = 0;
+	  var count = 0;
+
 	  _config.buttons.forEach(function (button, index) {
-	    button.onclick = function () {
-	      return (0, _userMove2.default)(index);
-	    };
+	    if (count === 3) {
+	      count = 0;
+	      row++;
+	    }
+	    count++;
+
+	    button.onclick = function (index, row) {
+	      return function () {
+	        return (0, _userMove2.default)(index, row);
+	      };
+	    }(index, row);
 	  });
 
 	  clearGameBoard.onclick = function () {
@@ -114,13 +125,17 @@
 
 	var _checkWin2 = _interopRequireDefault(_checkWin);
 
+	var _checkMove = __webpack_require__(7);
+
+	var _checkMove2 = _interopRequireDefault(_checkMove);
+
 	var _config = __webpack_require__(5);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var currentValue = void 0;
 
-	function userMove(number) {
+	function userMove(index, row) {
 	  if (currentValue === 'X') {
 	    currentValue = 'O';
 	    _config.whosTurn.innerHTML = "X's turn";
@@ -129,10 +144,12 @@
 	    _config.whosTurn.innerHTML = "O's turn";
 	  }
 
-	  _config.buttons[number].innerHTML = currentValue;
-	  _config.buttons[number].disabled = true;
+	  _config.buttons[index].innerHTML = currentValue;
+	  _config.buttons[index].disabled = true;
+	  _config.board[row][index] = currentValue;
 
-	  (0, _checkWin2.default)(currentValue);
+	  (0, _checkMove2.default)({ index: index, row: row, currentValue: currentValue, board: _config.board });
+	  // checkWin(currentValue);
 	}
 
 /***/ },
@@ -243,12 +260,8 @@
 	    X: 0,
 	    O: 0,
 	    ties: 0
-	  }
-	  // board: [
-	  //   [0,0,0]
-	  //   [0,0,0]
-	  //   [0,0,0]
-	  // ]
+	  },
+	  board: [["E", "E", "E"], ["E", "E", "E"], ["E", "E", "E"]]
 	};
 
 /***/ },
@@ -287,6 +300,54 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = checkMove;
+
+	var _currentRow = __webpack_require__(8);
+
+	var _currentRow2 = _interopRequireDefault(_currentRow);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function checkMove(data) {
+	  if ((0, _currentRow2.default)(data)) console.log('current row');
+	}
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = currentRow;
+	function currentRow(_ref) {
+	  var index = _ref.index;
+	  var row = _ref.row;
+	  var currentValue = _ref.currentValue;
+	  var board = _ref.board;
+
+	  var currentRowCheck = board[row].filter(function (value) {
+	    return value === currentValue;
+	  }).length;
+
+	  if (currentRowCheck === 3) {
+	    return true;
+	  }
+
+	  return false;
+	}
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	exports.default = clearBoard;
 
 	var _config = __webpack_require__(5);
@@ -301,7 +362,7 @@
 	}
 
 /***/ },
-/* 8 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -313,7 +374,7 @@
 
 	var _config = __webpack_require__(5);
 
-	var _clearBoard = __webpack_require__(7);
+	var _clearBoard = __webpack_require__(9);
 
 	var _clearBoard2 = _interopRequireDefault(_clearBoard);
 

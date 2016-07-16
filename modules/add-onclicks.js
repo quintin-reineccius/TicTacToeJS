@@ -8,19 +8,21 @@ let clearGameScores = document.getElementById('clearScores')
 
 export default function addOnclicks(){
   let row = 0
-  let count = 0
+  let column = 0
 
-  buttons.forEach((button, index) => {
-    if(count === 3) {
-      count = 0
-      row++
-    }
-    count++
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].forEach(button => {
+      if(column === 3) {
+        column = 0
+        row++
+      }
+      column++
 
-    button.onclick = function(index, row) {
-      return () => userMove(index, row)
-    }(index, row)
-  })
+      button.onclick = function(column, row) {
+        return () => userMove(column - 1, row)
+      }(column, row)
+    })
+  }
 
   clearGameBoard.onclick = () => clearBoard()
   clearGameScores.onclick = () => clearScores()

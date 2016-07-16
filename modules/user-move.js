@@ -4,7 +4,7 @@ import { buttons, whosTurn, board } from './config';
 
 let currentValue
 
-export default function userMove(index, row) {
+export default function userMove(column, row) {
   if(currentValue === 'X'){
     currentValue = 'O'
     whosTurn.innerHTML = "X's turn"
@@ -13,10 +13,10 @@ export default function userMove(index, row) {
     whosTurn.innerHTML = "O's turn"
   }
 
-  buttons[index].innerHTML = currentValue;
-  buttons[index].disabled = true;
-  board[row][index] = currentValue;
+  buttons[row][column].innerHTML = currentValue;
+  buttons[row][column].disabled = true;
+  board[row][column] = currentValue;
 
-  checkMove({ index, row, currentValue, board })
+  checkMove({ column, row, currentValue, board })
   // checkWin(currentValue);
 }

@@ -1,4 +1,4 @@
-export default function currentRow({ index, row, currentValue, board }){
+export default function currentRow({ column, row, currentValue, board }){
   let currentRowCheck = board[row]
     .filter(value => value === currentValue)
     .length

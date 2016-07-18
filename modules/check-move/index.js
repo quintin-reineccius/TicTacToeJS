@@ -1,8 +1,14 @@
 import currentRow from './current-row'
-import currentVertical from './current-vertical'
+import currentColumn from './current-column'
+import currentDiagonalLeft from './current-diagonal-left'
+import currentDiagonalRight from './current-diagonal-Right'
+import checkWinner from '../check-winner'
+import checkTie from '../check-tie'
 
-export default function checkMove(data){
-  if(currentRow(data)) console.log('current row')
-
-  if(currentVertical(data)) console.log('vert row')
+export default function checkMove(data, currentValue){
+  if(currentRow(data) || currentColumn(data) || currentDiagonalLeft(data) || currentDiagonalRight(data)){
+    checkWinner(currentValue)
+  } else {
+    checkTie()
+  }
 }

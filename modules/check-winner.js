@@ -1,8 +1,14 @@
-import { buttons, winner } from './config'
+import { buttons, winner, wins } from './config'
 
-export default function checkWinner(move, wins){
-  wins[move] += 1;
-  document.getElementById(`${move}-holder`).innerHTML = wins[move]
-  winner.innerHTML = `${move} Wins!`;
-  buttons.forEach(button => button.disabled = true );
+export default function checkWinner(currentValue){
+  wins[currentValue] += 1;
+
+  document.getElementById(`${currentValue}-holder`).innerHTML = wins[currentValue]
+  winner.innerHTML = `${currentValue} Wins!`;
+
+  buttons.forEach(row => {
+    row.forEach(column => {
+      column.disabled = true
+    })
+  })
 }

@@ -1,4 +1,4 @@
-export default function currentVertical({ column, row, currentValue, board }){
+export default function currentColumn({ column, row, currentValue, board }){
    let winValues = board
     .map(row => row[column])
     .filter(item => item === currentValue)

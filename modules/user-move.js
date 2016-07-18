@@ -1,4 +1,3 @@
-import checkWin from './check-win';
 import checkMove from './check-move';
 import { buttons, whosTurn, board } from './config';
 
@@ -17,6 +16,5 @@ export default function userMove(column, row) {
   buttons[row][column].disabled = true;
   board[row][column] = currentValue;
 
-  checkMove({ column, row, currentValue, board })
-  // checkWin(currentValue);
+  checkMove({ column, row, currentValue, board }, currentValue)
 }

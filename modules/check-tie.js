@@ -1,12 +1,22 @@
-import { buttons } from './config';
+import { buttons, wins, winner, board } from './config';
 
-export default function checkTie(wins){
-  var isThereATie = buttons
-    .map(button => button.disabled ? true : null)
+export default function checkTie(){
+  var isThereATieTop = buttons
+    .map(button => button[0].disabled ? true : null)
     .filter(i => i)
-    .length === 9
+    .length === 3
 
-  if (isThereATie){
+  var isThereATieMiddle = buttons
+    .map(button => button[1].disabled ? true : null)
+    .filter(i => i)
+    .length === 3
+
+  var isThereATieBottom = buttons
+    .map(button => button[2].disabled ? true : null)
+    .filter(i => i)
+    .length === 3
+
+  if (isThereATieTop && isThereATieMiddle && isThereATieBottom){
     wins['ties'] += 1;
     document.getElementById('ties-holder').innerHTML = wins['ties'];
     winner.innerHTML = 'Tie!';

@@ -1,6 +1,7 @@
 import { buttons, wins, winner, board } from './config';
 
 export default function checkTie(){
+  //needs cleaning up
   var isThereATieTop = buttons
     .map(button => button[0].disabled ? true : null)
     .filter(i => i)

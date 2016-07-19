@@ -4,7 +4,9 @@ export default function currentColumn({ column, row, currentValue, board }){
     .filter(item => item === currentValue)
     .length
 
-    if(winValues === 3) return true
+    if(winValues === 3){
+      return true
+    }
 
     return false
 }

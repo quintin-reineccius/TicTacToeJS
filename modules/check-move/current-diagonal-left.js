@@ -1,7 +1,6 @@
 export default function currentDiagonalLeft({ column, row, currentValue, board }){
-  let index = 2
   let DiagonalWinValues = board
-   .map(row => row[index--])
+   .map((row, index) => row[index])
    .filter(item => item === currentValue)
    .length
 

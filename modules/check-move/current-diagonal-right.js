@@ -1,6 +1,7 @@
 export default function currentDiagonalRight({ column, row, currentValue, board }){
+  let index = 2
   let DiagonalWinValues = board
-   .map((row, index) => row[index])
+   .map(row => row[index--])
    .filter(item => item === currentValue)
    .length
 

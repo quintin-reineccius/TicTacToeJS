@@ -21,8 +21,8 @@ describe('Current Row', () => {
     let row = 0
     let board = [
       ['O', 'O', 'O'],
-      ['E', 'X', 'X'],
-      ['E', 'E', 'E'],
+      [false, 'X', 'X'],
+      [false, false, false],
     ]
 
     expect(currentRow({ column, row, currentValue, board })).to.equal(true)
@@ -33,9 +33,9 @@ describe('Current Row', () => {
     let column = 1
     let row = 1
     let board = [
-      ['E', 'E', 'E'],
+      [false, false, false],
       ['X', 'X', 'X'],
-      ['E', 'O', 'O'],
+      [false, 'O', 'O'],
     ]
 
     expect(currentRow({ column, row, currentValue, board })).to.equal(true)
@@ -46,8 +46,8 @@ describe('Current Row', () => {
     let column = 1
     let row = 2
     let board = [
-      ['E', 'E', 'E'],
-      ['E', 'X', 'X'],
+      [false, false, false],
+      [false, 'X', 'X'],
       ['O', 'O', 'O'],
     ]
 

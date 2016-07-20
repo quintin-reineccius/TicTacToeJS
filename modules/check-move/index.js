@@ -2,13 +2,15 @@ import currentRow from './current-row'
 import currentColumn from './current-column'
 import currentDiagonalLeft from './current-diagonal-left'
 import currentDiagonalRight from './current-diagonal-Right'
-import updateWinner from '../update-winner'
-import checkTie from '../check-tie'
+import checkTie from './check-tie'
+import updateHTML from '../update-html'
 
 export default function checkMove(data, currentValue){
-  if(currentRow(data) || currentColumn(data) || currentDiagonalLeft(data) || currentDiagonalRight(data)){
+  if (currentRow(data) || currentColumn(data) || currentDiagonalLeft(data) || currentDiagonalRight(data)){
     updateWinner(currentValue)
-  } else {
-    checkTie()
+  }
+  else if (checkTie(data)) {
+    currentValue = 'ties'
+    updateHTML(currentValue)
   }
 }

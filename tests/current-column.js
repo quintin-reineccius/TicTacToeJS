@@ -20,9 +20,9 @@ describe('Current Column', () => {
     let column = 0
     let row = 1
     let board = [
-      ['O', 'E', 'E'],
-      ['O', 'X', 'E'],
-      ['O', 'X', 'E'],
+      ['O', false, false],
+      ['O', 'X', false],
+      ['O', 'X', false],
     ]
 
     expect(currentColumn({ column, row, currentValue, board })).to.equal(true)
@@ -33,9 +33,9 @@ describe('Current Column', () => {
     let column = 1
     let row = 1
     let board = [
-      ['E', 'O', 'E'],
-      ['X', 'O', 'E'],
-      ['X', 'O', 'E'],
+      [false, 'O', false],
+      ['X', 'O', false],
+      ['X', 'O', false],
     ]
 
     expect(currentColumn({ column, row, currentValue, board })).to.equal(true)
@@ -46,9 +46,9 @@ describe('Current Column', () => {
     let column = 2
     let row = 1
     let board = [
-      ['E', 'E', 'O'],
-      ['E', 'X', 'O'],
-      ['E', 'X', 'O'],
+      [false, false, 'O'],
+      [false, 'X', 'O'],
+      [false, 'X', 'O'],
     ]
 
     expect(currentColumn({ column, row, currentValue, board })).to.equal(true)

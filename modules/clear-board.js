@@ -10,7 +10,7 @@ export default function clearBoard(){
 
   board.forEach((row, rowIndex) => {
     row.forEach((column, columnIndex) => {
-      board[rowIndex][columnIndex] = 'E'
+      board[rowIndex][columnIndex] = false
     })
   })
 

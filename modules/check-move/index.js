@@ -7,7 +7,7 @@ import updateHTML from '../update-html'
 
 export default function checkMove(data, currentValue){
   if (currentRow(data) || currentColumn(data) || currentDiagonalLeft(data) || currentDiagonalRight(data)){
-    updateWinner(currentValue)
+    updateHTML(currentValue)
   }
   else if (checkTie(data)) {
     currentValue = 'ties'

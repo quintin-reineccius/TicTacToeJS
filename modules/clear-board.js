@@ -1,4 +1,4 @@
-import { buttons, board } from './config';
+import { buttons, board, winner } from './config';
 
 export default function clearBoard(){
   buttons.forEach(row => {

@@ -1,6 +1,10 @@
 export default function checkTie({ board }){
   var isThereATie = board
-    .map(wholeBoard => wholeBoard.map(wb => wb).filter(Boolean).length === 3)
+    .map(row => {
+      return row
+        .filter(Boolean)
+        .length === 3
+    })
     .filter(Boolean)
     .length === 3
 

@@ -1,4 +1,4 @@
-export default function checkTie({ board }){
+export default function fullBoardCheck({ board }){
   var isThereATie = board
     .map(row => {
       return row

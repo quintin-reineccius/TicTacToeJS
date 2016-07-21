@@ -1,7 +1,6 @@
 export default function clearBoard({ buttons, board, winner }){
   buttons.forEach(row => {
     row.forEach(column => {
-      console.log(column);
       column.disabled = false
       column.innerHTML = ' '
     })

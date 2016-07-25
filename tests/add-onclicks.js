@@ -1,6 +1,7 @@
 import { expect } from 'chai'
 import addOnclicks from '../modules/add-onclicks'
 
+//needs improvement
 describe('Add Onclicks', () => {
   it('should add onclicks', () => {
     let clearGameBoard = document.getElementById('clearBoard')

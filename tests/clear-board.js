@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import clearBoard from '../modules/clear-board';
 
-//There is probably a better way to do this
+//needs improvement
 describe('Clear Board', () => {
   it('should clear the board, buttons and winner', () => {
     let winner = document.getElementById('winner')

@@ -20,9 +20,9 @@ describe('Current Diagonal Left', () => {
     let column = 2
     let row = 0
     let board = [
-      ['E', 'E', 'O'],
-      ['E', 'O', 'X'],
-      ['O', 'X', 'E'],
+      [false, false, 'O'],
+      [false, 'O', 'X'],
+      ['O', 'X', false],
     ]
 
     expect(currentDiagonalRight({ column, row, currentValue, board })).to.equal(true)

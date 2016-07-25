@@ -1,10 +1,10 @@
 export default function currentColumn({ column, row, currentValue, board }){
-   let winValues = board
+   let currentColumnCheck = board
     .map(row => row[column])
     .filter(item => item === currentValue)
     .length
 
-    if(winValues === 3){
+    if(currentColumnCheck === 3){
       return true
     }
 

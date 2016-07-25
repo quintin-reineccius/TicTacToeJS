@@ -12,8 +12,8 @@ module.exports = {
     ties: 0
   },
   board: [
-    ["E","E","E"],
-    ["E","E","E"],
-    ["E","E","E"],
+    [false,false,false],
+    [false,false,false],
+    [false,false,false],
   ]
 }

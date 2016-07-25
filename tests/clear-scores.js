@@ -4,7 +4,7 @@ import { buttons, board, winner } from '../modules/config'
 
 describe('Clear Scores', () => {
   it('should clear game scores', () => {
-    var wins = {
+    let wins = {
       X: 130,
       O: 49,
       ties: 8

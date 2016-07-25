@@ -4,10 +4,10 @@ import clearBoard from '../modules/clear-board';
 //There is probably a better way to do this
 describe('Clear Board', () => {
   it('should clear the board, buttons and winner', () => {
-    var winner = document.getElementById('winner')
+    let winner = document.getElementById('winner')
     winner.innerHTML = "X wins"
 
-    var buttons = [
+    let buttons = [
       [...document.querySelectorAll(".row1 > button")],
       [...document.querySelectorAll(".row2 > button")],
       [...document.querySelectorAll(".row3 > button")]
@@ -19,7 +19,7 @@ describe('Clear Board', () => {
       })
     })
 
-    var board = [
+    let board = [
       ["X","X","O"],
       ["O","O","X"],
       ["X","X","O"],

@@ -16,14 +16,9 @@ describe('Add Onclicks', () => {
 
     expect(typeof clearGameBoard.onclick).to.equal('function')
     expect(typeof clearGameScores.onclick).to.equal('function')
+    
     expect(typeof buttons[0][0].onclick).to.equal('function')
-    expect(typeof buttons[0][1].onclick).to.equal('function')
-    expect(typeof buttons[0][2].onclick).to.equal('function')
-    expect(typeof buttons[1][0].onclick).to.equal('function')
     expect(typeof buttons[1][1].onclick).to.equal('function')
-    expect(typeof buttons[1][2].onclick).to.equal('function')
-    expect(typeof buttons[0][0].onclick).to.equal('function')
-    expect(typeof buttons[0][1].onclick).to.equal('function')
-    expect(typeof buttons[0][2].onclick).to.equal('function')
+    expect(typeof buttons[2][2].onclick).to.equal('function')
   })
 })

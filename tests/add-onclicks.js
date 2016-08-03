@@ -1,7 +1,6 @@
 import { expect } from 'chai'
 import addOnclicks from '../modules/add-onclicks'
 
-//needs improvement
 describe('Add Onclicks', () => {
   it('should add onclicks', () => {
     let clearGameBoard = document.getElementById('clearBoard')
@@ -16,7 +15,7 @@ describe('Add Onclicks', () => {
 
     expect(typeof clearGameBoard.onclick).to.equal('function')
     expect(typeof clearGameScores.onclick).to.equal('function')
-    
+
     expect(typeof buttons[0][0].onclick).to.equal('function')
     expect(typeof buttons[1][1].onclick).to.equal('function')
     expect(typeof buttons[2][2].onclick).to.equal('function')

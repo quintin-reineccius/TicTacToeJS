@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack --watch",
     "test": "mocha \"tests\" --require tests/setup --recursive --compilers js:babel-register",
-    "local-test": "mocha \"tests\" --require tests/setup --recursive --compilers js:babel-register --watch"
+    "local-test": "mocha \"tests\" --require tests/setup --recursive --compilers js:babel-register --watch",
+    "browser-test": "protractor ./tests/config.js",
+    "browser-test-setup": "webdriver-manager start"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "chai": "^3.5.0",
     "jsdom": "^9.4.1",
     "mocha": "^3.0.0",
+    "protractor": "^4.0.2",
     "webpack": "^1.13.1"
   }
 }

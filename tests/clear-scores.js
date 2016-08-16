@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import clearScores from '../modules/clear-scores';
-import { buttons, board, winner } from '../modules/config'
+import { buttons, board, winner, table, tbody } from '../modules/config'
 
 describe('Clear Scores', () => {
   it('should clear game scores', () => {
@@ -10,7 +10,7 @@ describe('Clear Scores', () => {
       ties: 8
     }
 
-    clearScores({ wins, buttons, board, winner })
+    clearScores({ buttons, board, winner, wins, table, tbody })
 
     expect(wins['X'] && wins['O'] && wins['ties']).to.equal(0)
   })

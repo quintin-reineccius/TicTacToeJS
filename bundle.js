@@ -105,10 +105,10 @@
 	  }
 
 	  clearGameBoard.onclick = function () {
-	    return (0, _clearBoard2.default)({ buttons: _config.buttons, board: _config.board, winner: _config.winner });
+	    return (0, _clearBoard2.default)({ buttons: _config.buttons, board: _config.board, winner: _config.winner, table: _config.table, tbody: _config.tbody });
 	  };
 	  clearGameScores.onclick = function () {
-	    return (0, _clearScores2.default)({ buttons: _config.buttons, board: _config.board, winner: _config.winner, wins: _config.wins });
+	    return (0, _clearScores2.default)({ buttons: _config.buttons, board: _config.board, winner: _config.winner, wins: _config.wins, table: _config.table, tbody: _config.tbody });
 	  };
 	}
 
@@ -352,16 +352,20 @@
 	    _config.winner.innerHTML = 'Tie!';
 	  } else {
 	    _config.winner.innerHTML = currentValue + ' Wins!';
+
+	    _config.table.classList.add("winnerGif");
+	    _config.tbody.classList.add("removeBlack");
+
+	    _config.buttons.forEach(function (row) {
+	      row.forEach(function (column) {
+	        column.disabled = true;
+	        column.classList.add("removeWhite");
+	      });
+	    });
 	  }
 
 	  _config.wins[currentValue] += 1;
 	  document.getElementById(currentValue + '-holder').innerHTML = _config.wins[currentValue];
-
-	  _config.buttons.forEach(function (row) {
-	    row.forEach(function (column) {
-	      column.disabled = true;
-	    });
-	  });
 	}
 
 /***/ },
@@ -374,6 +378,8 @@
 
 	module.exports = {
 	  buttons: [[].concat(_toConsumableArray(document.querySelectorAll(".row1 > td > button"))), [].concat(_toConsumableArray(document.querySelectorAll(".row2 > td > button"))), [].concat(_toConsumableArray(document.querySelectorAll(".row3 > td > button")))],
+	  table: document.querySelector('table'),
+	  tbody: document.querySelector('tbody'),
 	  winner: document.getElementById('winner'),
 	  whosTurn: document.getElementById('whos-turn'),
 	  wins: {
@@ -388,7 +394,7 @@
 /* 11 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -398,11 +404,17 @@
 	  var buttons = _ref.buttons;
 	  var board = _ref.board;
 	  var winner = _ref.winner;
+	  var table = _ref.table;
+	  var tbody = _ref.tbody;
+
+	  table.classList.remove("winnerGif");
+	  tbody.classList.remove("removeBlack");
 
 	  buttons.forEach(function (row) {
 	    row.forEach(function (column) {
 	      column.disabled = false;
 	      column.innerHTML = '';
+	      column.classList.remove('removeWhite');
 	    });
 	  });
 
@@ -433,17 +445,19 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function clearScores(_ref) {
-	  var wins = _ref.wins;
 	  var buttons = _ref.buttons;
 	  var board = _ref.board;
 	  var winner = _ref.winner;
+	  var wins = _ref.wins;
+	  var table = _ref.table;
+	  var tbody = _ref.tbody;
 
 	  for (var i in wins) {
 	    wins[i] = 0;
 	    document.getElementById(i + '-holder').innerHTML = wins[i];
 	  }
 
-	  (0, _clearBoard2.default)({ buttons: buttons, board: board, winner: winner });
+	  (0, _clearBoard2.default)({ buttons: buttons, board: board, winner: winner, table: table, tbody: tbody });
 	}
 
 /***/ }

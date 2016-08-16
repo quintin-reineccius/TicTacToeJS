@@ -4,6 +4,8 @@ module.exports = {
     [...document.querySelectorAll(".row2 > td > button")],
     [...document.querySelectorAll(".row3 > td > button")]
   ],
+  table: document.querySelector('table'),
+  tbody: document.querySelector('tbody'),
   winner: document.getElementById('winner'),
   whosTurn: document.getElementById('whos-turn'),
   wins: {

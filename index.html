@@ -9,23 +9,27 @@
   <body>
     <h1>Tic Tac Toe</h1>
     <h2 id="winner"></h2>
-    <div class="game">
-      <div class="row row1">
-        <button type="button"></button>
-        <button type="button"></button>
-        <button type="button"></button>
-      </div>
-      <div class="row row2">
-        <button type="button"></button>
-        <button type="button"></button>
-        <button type="button"></button>
-      </div>
-      <div class="row row3">
-        <button type="button"></button>
-        <button type="button"></button>
-        <button type="button"></button>
-      </div>
-    </div>
+
+    <table>
+      <tbody>
+        <tr class="row1">
+          <td class="one"><button type="button"></button></td>
+          <td class="two"><button type="button"></button></td>
+          <td><button type="button"></button></td>
+        </tr>
+        <tr class="row2">
+          <td class="one"><button type="button"></button></td>
+          <td class="two"><button type="button"></button></td>
+          <td><button type="button"></button></td>
+        </tr>
+        <tr class="row3">
+          <td class="one"><button type="button"></button></td>
+          <td class="two"><button type="button"></button></td>
+          <td><button type="button"></button></td>
+        </tr>
+      </tbody>
+    </table>
+
     <h2 id="whos-turn">X's turn</h2>
     <button type="button" id="clearBoard">Clear Board</button>
     <button type="button" id="clearScores">Clear Scores</button>

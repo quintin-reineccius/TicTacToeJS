@@ -21,28 +21,61 @@ ul {
   padding: 0;
 }
 
-.game {
-   padding: 15px 0;
+table {
+  margin: 15px auto;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 
-.row button {
+table tbody {
+  background-color: black;
+}
+
+table td {
+  padding: 0;
+  margin: 0;
+}
+
+table button {
   border: none;
-  color: #fff;
-  background-color: #b5b5b5;
-  /*color: #000;
-  background-image: URL(./win.gif);
-  background-size: 193px;
-  background-position: center;*/
-  height: 70px;
-  width: 70px;
-  font-size: 40px;
-  line-height: 1;
-  font-weight: 700;
-  cursor: pointer;
-  margin: 8px 5px;
-  text-align: center;
-  display: inline-block;
   outline: none;
-  box-sizing: border-box;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
   vertical-align: top;
+  background-color: #FFF;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.row1 button {
+  margin-bottom: 10px;
+}
+
+.row2 button {
+  margin-bottom: 10px;
+}
+
+.one button {
+  margin-right: 10px;
+}
+
+.two button {
+  margin-right: 10px;
+}
+
+/* ----==== Winner styles ====---- */
+table.winnerGif {
+  background-image: url(./img:gif/win.gif);
+  background-size: 546px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+tbody.removeBlack {
+  background-color: transparent;
+}
+
+table button.removeWhite {
+  background-color: transparent;
 }

@@ -3,18 +3,24 @@ import clearBoard from '../modules/clear-board';
 
 describe('Clear Board', () => {
   it('should clear the board, buttons and winner', () => {
+    let table = document.querySelector('table')
+    let tbody = document.querySelector('tbody')
+    table.classList.add('winnerGif')
+    tbody.classList.add('removeBlack')
+
     let winner = document.getElementById('winner')
     winner.innerHTML = "X wins"
 
     let buttons = [
-      [...document.querySelectorAll(".row1 > button")],
-      [...document.querySelectorAll(".row2 > button")],
-      [...document.querySelectorAll(".row3 > button")]
+      [...document.querySelectorAll(".row1 > td > button")],
+      [...document.querySelectorAll(".row2 > td > button")],
+      [...document.querySelectorAll(".row3 > td > button")]
     ]
     buttons.forEach(row => {
       row.forEach(column => {
         column.disabled = true
         column.innerHTML = 'X'
+        column.classList.add('removeWhite')
       })
     })
 
@@ -24,7 +30,7 @@ describe('Clear Board', () => {
       ["X","X","O"],
     ]
 
-    clearBoard({ buttons, board, winner })
+    clearBoard({ buttons, board, winner, table, tbody })
 
     expect(winner.innerHTML).to.equal('')
 

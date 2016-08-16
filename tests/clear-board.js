@@ -7,9 +7,9 @@ describe('Clear Board', () => {
     winner.innerHTML = "X wins"
 
     let buttons = [
-      [...document.querySelectorAll(".row1 > button")],
-      [...document.querySelectorAll(".row2 > button")],
-      [...document.querySelectorAll(".row3 > button")]
+      [...document.querySelectorAll(".row1 > td > button")],
+      [...document.querySelectorAll(".row2 > td > button")],
+      [...document.querySelectorAll(".row3 > td > button")]
     ]
     buttons.forEach(row => {
       row.forEach(column => {

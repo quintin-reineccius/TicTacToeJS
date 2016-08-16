@@ -1,8 +1,8 @@
 module.exports = {
   buttons: [
-    [...document.querySelectorAll(".row1 > button")],
-    [...document.querySelectorAll(".row2 > button")],
-    [...document.querySelectorAll(".row3 > button")]
+    [...document.querySelectorAll(".row1 > td > button")],
+    [...document.querySelectorAll(".row2 > td > button")],
+    [...document.querySelectorAll(".row3 > td > button")]
   ],
   winner: document.getElementById('winner'),
   whosTurn: document.getElementById('whos-turn'),

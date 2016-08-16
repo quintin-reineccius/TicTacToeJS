@@ -2,4 +2,4 @@
 
 > CircleCI
 
-[![CircleCI](https://circleci.com/gh/rampage1213/TicTacToeJS/tree/gh-pages.svg?style=svg)](https://circleci.com/gh/rampage1213/TicTacToeJS/tree/gh-pages)
+[![CircleCI](https://circleci.com/gh/rampage1213/TicTacToeJS/tree/master.svg?style=svg)](https://circleci.com/gh/rampage1213/TicTacToeJS/tree/master)

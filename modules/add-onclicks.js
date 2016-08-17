@@ -10,6 +10,7 @@ export default function addOnclicks(){
   let row = 0
   let column = 0
 
+  //update
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].forEach(button => {
       if(column === 3) {

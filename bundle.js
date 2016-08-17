@@ -88,6 +88,7 @@
 	  var row = 0;
 	  var column = 0;
 
+	  //update
 	  for (var i = 0; i < _config.buttons.length; i++) {
 	    _config.buttons[i].forEach(function (button) {
 	      if (column === 3) {
@@ -134,6 +135,8 @@
 	var currentValue = void 0;
 
 	function userMove(column, row) {
+	  //no else
+	  //split this up
 	  if (currentValue === 'X') {
 	    currentValue = 'O';
 	    _config.whosTurn.innerHTML = "X's turn";
@@ -142,6 +145,7 @@
 	    _config.whosTurn.innerHTML = "O's turn";
 	  }
 
+	  //more readable put this in update html function
 	  _config.buttons[row][column].innerHTML = currentValue;
 	  _config.buttons[row][column].disabled = true;
 	  _config.board[row][column] = currentValue;
@@ -187,11 +191,14 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function checkMove(data, currentValue) {
+	  //clean iswin function istie function 
 	  if ((0, _currentRow2.default)(data) || (0, _currentColumn2.default)(data) || (0, _currentDiagonalLeft2.default)(data) || (0, _currentDiagonalRight2.default)(data)) {
-	    (0, _updateHtml2.default)(currentValue);
-	  } else if ((0, _fullBoardCheck2.default)(data)) {
+	    return (0, _updateHtml2.default)(currentValue);
+	  }
+
+	  if ((0, _fullBoardCheck2.default)(data)) {
 	    currentValue = 'ties';
-	    (0, _updateHtml2.default)(currentValue);
+	    return (0, _updateHtml2.default)(currentValue);
 	  }
 	}
 
@@ -238,6 +245,7 @@
 	  var currentValue = _ref.currentValue;
 	  var board = _ref.board;
 
+	  //clean up change logic so you ccan use with connect4 
 	  var currentColumnCheck = board.map(function (row) {
 	    return row[column];
 	  }).filter(function (item) {

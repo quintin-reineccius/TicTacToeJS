@@ -1,12 +1,12 @@
 export default function clearBoard({ buttons, board, winner, table, tbody }){
-  table.classList.remove("winnerGif");
-  tbody.classList.remove("removeBlack");
+  table.classList.remove("winnerGif")
+  tbody.classList.remove("removeBlack")
 
   buttons.forEach(row => {
     row.forEach(column => {
       column.disabled = false
       column.innerHTML = ''
-      column.classList.remove('removeWhite');
+      column.classList.remove('removeWhite')
     })
   })
 
@@ -16,5 +16,5 @@ export default function clearBoard({ buttons, board, winner, table, tbody }){
     })
   })
 
-  winner.innerHTML = '';
+  winner.innerHTML = ''
 }

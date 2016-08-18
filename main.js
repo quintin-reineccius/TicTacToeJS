@@ -1,2 +1,2 @@
-import addOnclicks from './modules/add-onclicks';
+import addOnclicks from './modules/add-onclicks'
 addOnclicks()

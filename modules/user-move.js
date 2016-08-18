@@ -16,9 +16,9 @@ export default function userMove(column, row) {
   }
 
   //more readable put this in update html function
-  buttons[row][column].innerHTML = currentValue;
-  buttons[row][column].disabled = true;
-  board[row][column] = currentValue;
+  buttons[row][column].innerHTML = currentValue
+  buttons[row][column].disabled = true
+  board[row][column] = currentValue
 
   checkMove({ column, row, currentValue, board }, currentValue)
 }

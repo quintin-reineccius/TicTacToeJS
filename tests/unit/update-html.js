@@ -1,6 +1,6 @@
 import { expect } from 'chai'
-import updateHTML from '../modules/update-html'
-import { buttons, winner, wins } from '../modules/config'
+import updateHTML from '../../modules/update-html'
+import { winner, wins } from '../../modules/config'
 
 describe('Update HTML', () => {
   it('Update game html that X won', () => {

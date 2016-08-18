@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import addOnclicks from '../modules/add-onclicks'
+import addOnclicks from '../../modules/add-onclicks'
 
 describe('Add Onclicks', () => {
   it('should add onclicks', () => {

@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import currentDiagonalRight from '../modules/check-move/current-diagonal-right'
+import currentDiagonalRight from '../../modules/check-move/current-diagonal-right'
 
 describe('Current Diagonal Left', () => {
   it('should return false if theres no win', () => {

@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import fullBoardCheck from '../modules/check-move/full-board-check'
+import fullBoardCheck from '../../modules/check-move/full-board-check'
 
 describe('Checking if board is full', () => {
   it('should return false because board is not full', () => {

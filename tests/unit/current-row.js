@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import currentRow from '../modules/check-move/current-row'
+import currentRow from '../../modules/check-move/current-row'
 
 describe('Current Row', () => {
   it('should return false if theres no win', () => {

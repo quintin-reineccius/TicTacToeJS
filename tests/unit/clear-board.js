@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import clearBoard from '../modules/clear-board';
+import clearBoard from '../../modules/clear-board';
 
 describe('Clear Board', () => {
   it('should clear the board, buttons and winner', () => {

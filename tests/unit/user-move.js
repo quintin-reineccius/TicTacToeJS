@@ -1,6 +1,6 @@
 import { expect } from 'chai'
-import userMove from '../modules/user-move'
-import { buttons, whosTurn, board } from '../modules/config'
+import userMove from '../../modules/user-move'
+import { buttons, whosTurn, board } from '../../modules/config'
 
 describe('User Move', () => {
   it('should start the game in the top left corner = X', () => {

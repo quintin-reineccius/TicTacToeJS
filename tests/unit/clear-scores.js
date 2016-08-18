@@ -1,6 +1,6 @@
 import { expect } from 'chai'
-import clearScores from '../modules/clear-scores';
-import { buttons, board, winner, table, tbody } from '../modules/config'
+import clearScores from '../../modules/clear-scores';
+import { buttons, board, winner, table, tbody } from '../../modules/config'
 
 describe('Clear Scores', () => {
   it('should clear game scores', () => {

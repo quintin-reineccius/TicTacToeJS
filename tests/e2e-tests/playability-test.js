@@ -1,3 +1,4 @@
+//can be cleaned up i think 
 describe('e2e testing', () => {
   let xHolder = element(by.id('X-holder'))
   let oHolder = element(by.id('O-holder'))
@@ -9,7 +10,7 @@ describe('e2e testing', () => {
     browser.get('https://rampage1213.github.io/TicTacToeJS/')
   })
 
-  it('should play a whole game where X wins', () => {
+  it('should play a whole game where X wins / verifies win / clears board', () => {
     element(by.css('.row1 > td:nth-child(1) > button')).click()
     element(by.css('.row2 > td:nth-child(1) > button')).click()
     element(by.css('.row1 > td:nth-child(2) > button')).click()
@@ -18,44 +19,29 @@ describe('e2e testing', () => {
     element(by.css('.row3 > td:nth-child(2) > button')).click()
     element(by.css('.row3 > td:nth-child(3) > button')).click()
     browser.sleep(500)
-  })
-
-  // it('should check if winner text popped up for X', () => {
-  //   expect(winner.getText()).to.eventually.equal('X Wins!')
-  // })
-  //
-  // it('should check if X\'s score got updated', () => {
-  //   expect(xHolder.getText()).to.eventually.equal('1')
-  // })
-
-  it('should clear the board', () => {
+    expect(winner.getText()).to.eventually.equal('X Wins!')
+    expect(xHolder.getText()).to.eventually.equal('1')
     element(by.buttonText('Clear Board')).click()
-  })
-
-  it('should play a whole game where O wins', () => {
-    element(by.css('.row2 > td:nth-child(2) > button')).click()
-    element(by.css('.row3 > td:nth-child(1) > button')).click()
-    element(by.css('.row1 > td:nth-child(2) > button')).click()
-    element(by.css('.row3 > td:nth-child(2) > button')).click()
-    element(by.css('.row3 > td:nth-child(3) > button')).click()
-    element(by.css('.row2 > td:nth-child(3) > button')).click()
-    element(by.css('.row1 > td:nth-child(1) > button')).click()
     browser.sleep(500)
   })
 
-  // it('should check if winner text popped up for O', () => {
-  //   expect(winner.getText()).to.eventually.equal('O Wins!')
-  // })
-
-  // it('should check if O\'s score got updated', () => {
-  //   expect(xHolder.getText()).to.eventually.equal('1')
-  // })
-
-  it('should clear the board', () => {
+  it('should play a whole game where O wins / verifies win / clears board', () => {
+    element(by.css('.row1 > td:nth-child(2) > button')).click()
+    element(by.css('.row3 > td:nth-child(3) > button')).click()
+    element(by.css('.row2 > td:nth-child(2) > button')).click()
+    element(by.css('.row3 > td:nth-child(2) > button')).click()
+    element(by.css('.row3 > td:nth-child(1) > button')).click()
+    element(by.css('.row2 > td:nth-child(3) > button')).click()
+    element(by.css('.row2 > td:nth-child(1) > button')).click()
+    element(by.css('.row1 > td:nth-child(3) > button')).click()
+    browser.sleep(500)
+    expect(winner.getText()).to.eventually.equal('O Wins!')
+    expect(oHolder.getText()).to.eventually.equal('1')
     element(by.buttonText('Clear Board')).click()
+    browser.sleep(500)
   })
 
-  it('should play a game that ties', () => {
+  it('should play a game that ties / verifies tie / clears scores / verifies scores are cleared', () => {
     element(by.css('.row1 > td:nth-child(1) > button')).click()
     element(by.css('.row2 > td:nth-child(1) > button')).click()
     element(by.css('.row3 > td:nth-child(1) > button')).click()
@@ -66,24 +52,10 @@ describe('e2e testing', () => {
     element(by.css('.row2 > td:nth-child(2) > button')).click()
     element(by.css('.row3 > td:nth-child(2) > button')).click()
     browser.sleep(500)
-  })
-
-  // it('should check if winner text popped up is a tie', () => {
-  //   expect(winner.getText()).to.eventually.equal('Tie!')
-  // })
-
-  // it('should check if Tie\'s score got updated', () => {
-  //   expect(xHolder.getText()).to.eventually.equal('1')
-  // })
-
-  it('should clear game scores and board', () => {
+    expect(winner.getText()).to.eventually.equal('Tie!')
+    expect(tiesHolder.getText()).to.eventually.equal('1')
     element(by.buttonText('Clear Scores')).click()
-  })
-
-  it('should check if game scores equal 0', () => {
-    expect(xHolder.getText()).to.eventually.equal('0')
-    expect(oHolder.getText()).to.eventually.equal('0')
+    browser.sleep(500)
     expect(tiesHolder.getText()).to.eventually.equal('0')
   })
-
 })

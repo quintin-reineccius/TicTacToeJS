@@ -10,20 +10,19 @@ export default function addOnclicks(){
   let row = 0
   let column = 0
 
-  //update
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].forEach(button => {
-      if(column === 3) {
+  buttons.forEach(button => {
+    button.forEach(item => {
+      if(column === 3){
         column = 0
         row++
       }
       column++
 
-      button.onclick = function(column, row) {
-        return () => userMove(column - 1, row)
-      }(column, row)
+      item.onclick = function(row, column) {
+        return () => userMove(row, column - 1)
+      }(row, column)
     })
-  }
+  })
 
   clearGameBoard.onclick = () => clearBoard({ buttons, board, winner, table, tbody })
   clearGameScores.onclick = () => clearScores({ buttons, board, winner, wins, table, tbody })

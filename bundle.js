@@ -88,22 +88,21 @@
 	  var row = 0;
 	  var column = 0;
 
-	  //update
-	  for (var i = 0; i < _config.buttons.length; i++) {
-	    _config.buttons[i].forEach(function (button) {
+	  _config.buttons.forEach(function (button) {
+	    button.forEach(function (item) {
 	      if (column === 3) {
 	        column = 0;
 	        row++;
 	      }
 	      column++;
 
-	      button.onclick = function (column, row) {
+	      item.onclick = function (row, column) {
 	        return function () {
-	          return (0, _userMove2.default)(column - 1, row);
+	          return (0, _userMove2.default)(row, column - 1);
 	        };
-	      }(column, row);
+	      }(row, column);
 	    });
-	  }
+	  });
 
 	  clearGameBoard.onclick = function () {
 	    return (0, _clearBoard2.default)({ buttons: _config.buttons, board: _config.board, winner: _config.winner, table: _config.table, tbody: _config.tbody });
@@ -134,7 +133,7 @@
 
 	var currentValue = void 0;
 
-	function userMove(column, row) {
+	function userMove(row, column) {
 	  //no else
 	  //split this up
 	  if (currentValue === 'X') {

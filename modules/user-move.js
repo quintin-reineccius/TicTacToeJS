@@ -3,7 +3,7 @@ import { buttons, whosTurn, board } from './config'
 
 let currentValue
 
-export default function userMove(column, row) {
+export default function userMove(row, column) {
   //no else
   //split this up
   if(currentValue === 'X'){

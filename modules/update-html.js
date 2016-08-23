@@ -1,23 +1,40 @@
-import { buttons, winner, wins, table, tbody } from './config'
+import { buttons, winner, wins, table, tbody, whosTurn } from './config'
 
-export default function updateHTML(currentValue){
-  if (currentValue === 'ties'){
-    winner.innerHTML = 'Tie!'
+export default function updateHTML({ currentValue, row, column, win }){
+  //clean up maybe
+  if(currentValue === 'X'){
+    whosTurn.innerHTML = "O's turn"
   }
   else {
-    winner.innerHTML = `${currentValue} Wins!`
+    whosTurn.innerHTML = "X's turn"
+  }
 
-    table.classList.add("winnerGif")
-    tbody.classList.add("removeBlack")
+  if(win == false){
+    buttons[row][column].innerHTML = currentValue
+    buttons[row][column].disabled = true
+  }
 
+  let holder = document.getElementById(`${currentValue}-holder`)
+
+  if(win == true) {
     buttons.forEach(row => {
       row.forEach(column => {
         column.disabled = true
         column.classList.add("removeWhite")
       })
     })
+
+    table.classList.add("winnerGif")
+    tbody.classList.add("removeBlack")
+
+    wins[currentValue] += 1
+    holder.innerHTML = wins[currentValue]
+    return winner.innerHTML = `${currentValue} Wins!`
   }
 
-  wins[currentValue] += 1
-  document.getElementById(`${currentValue}-holder`).innerHTML = wins[currentValue]
+  if(currentValue === 'ties'){
+    wins[currentValue] += 1
+    holder.innerHTML = wins[currentValue]
+    return winner.innerHTML = 'Tie!'
+  }
 }

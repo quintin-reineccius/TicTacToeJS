@@ -127,29 +127,28 @@
 
 	var _checkMove2 = _interopRequireDefault(_checkMove);
 
+	var _updateHtml = __webpack_require__(9);
+
+	var _updateHtml2 = _interopRequireDefault(_updateHtml);
+
 	var _config = __webpack_require__(10);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var currentValue = void 0;
+	var win = false;
 
 	function userMove(row, column) {
-	  //no else
-	  //split this up
 	  if (currentValue === 'X') {
 	    currentValue = 'O';
-	    _config.whosTurn.innerHTML = "X's turn";
 	  } else {
 	    currentValue = 'X';
-	    _config.whosTurn.innerHTML = "O's turn";
 	  }
 
-	  //more readable put this in update html function
-	  _config.buttons[row][column].innerHTML = currentValue;
-	  _config.buttons[row][column].disabled = true;
 	  _config.board[row][column] = currentValue;
 
-	  (0, _checkMove2.default)({ column: column, row: row, currentValue: currentValue, board: _config.board }, currentValue);
+	  (0, _updateHtml2.default)({ currentValue: currentValue, row: row, column: column, win: win });
+	  (0, _checkMove2.default)({ column: column, row: row, currentValue: currentValue, board: _config.board }, { currentValue: currentValue, row: row, column: column });
 	}
 
 /***/ },
@@ -189,15 +188,20 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function checkMove(data, currentValue) {
-	  //clean iswin function istie function 
+	function checkMove(data, _ref) {
+	  var currentValue = _ref.currentValue;
+	  var row = _ref.row;
+	  var column = _ref.column;
+
+	  //clean iswin function istie function
 	  if ((0, _currentRow2.default)(data) || (0, _currentColumn2.default)(data) || (0, _currentDiagonalLeft2.default)(data) || (0, _currentDiagonalRight2.default)(data)) {
-	    return (0, _updateHtml2.default)(currentValue);
+	    var win = true;
+	    return (0, _updateHtml2.default)({ currentValue: currentValue, row: row, column: column, win: win });
 	  }
 
 	  if ((0, _fullBoardCheck2.default)(data)) {
 	    currentValue = 'ties';
-	    return (0, _updateHtml2.default)(currentValue);
+	    return (0, _updateHtml2.default)({ currentValue: currentValue, row: row, column: column });
 	  }
 	}
 
@@ -354,25 +358,47 @@
 
 	var _config = __webpack_require__(10);
 
-	function updateHTML(currentValue) {
-	  if (currentValue === 'ties') {
-	    _config.winner.innerHTML = 'Tie!';
+	function updateHTML(_ref) {
+	  var currentValue = _ref.currentValue;
+	  var row = _ref.row;
+	  var column = _ref.column;
+	  var win = _ref.win;
+
+	  //clean up maybe
+	  if (currentValue === 'X') {
+	    _config.whosTurn.innerHTML = "O's turn";
 	  } else {
-	    _config.winner.innerHTML = currentValue + ' Wins!';
+	    _config.whosTurn.innerHTML = "X's turn";
+	  }
 
-	    _config.table.classList.add("winnerGif");
-	    _config.tbody.classList.add("removeBlack");
+	  if (win == false) {
+	    _config.buttons[row][column].innerHTML = currentValue;
+	    _config.buttons[row][column].disabled = true;
+	  }
 
+	  var holder = document.getElementById(currentValue + '-holder');
+
+	  if (win == true) {
 	    _config.buttons.forEach(function (row) {
 	      row.forEach(function (column) {
 	        column.disabled = true;
 	        column.classList.add("removeWhite");
 	      });
 	    });
+
+	    _config.table.classList.add("winnerGif");
+	    _config.tbody.classList.add("removeBlack");
+
+	    _config.wins[currentValue] += 1;
+	    holder.innerHTML = _config.wins[currentValue];
+	    return _config.winner.innerHTML = currentValue + ' Wins!';
 	  }
 
-	  _config.wins[currentValue] += 1;
-	  document.getElementById(currentValue + '-holder').innerHTML = _config.wins[currentValue];
+	  if (currentValue === 'ties') {
+	    _config.wins[currentValue] += 1;
+	    holder.innerHTML = _config.wins[currentValue];
+	    return _config.winner.innerHTML = 'Tie!';
+	  }
 	}
 
 /***/ },

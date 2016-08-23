@@ -1,4 +1,4 @@
-//can be cleaned up i think 
+//can be cleaned up i think
 describe('e2e testing', () => {
   let xHolder = element(by.id('X-holder'))
   let oHolder = element(by.id('O-holder'))
@@ -7,7 +7,7 @@ describe('e2e testing', () => {
 
   beforeEach(function() {
     browser.ignoreSynchronization = true
-    browser.get('https://rampage1213.github.io/TicTacToeJS/')
+    browser.get('file:///Users/quintinreineccius/Documents/code/TicTacToeJS/index.html')
   })
 
   it('should play a whole game where X wins / verifies win / clears board', () => {

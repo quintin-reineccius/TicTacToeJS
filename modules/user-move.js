@@ -1,24 +1,20 @@
 import checkMove from './check-move'
+import updateHTML from './update-html'
 import { buttons, whosTurn, board } from './config'
 
 let currentValue
+let win = false
 
 export default function userMove(row, column) {
-  //no else
-  //split this up
   if(currentValue === 'X'){
     currentValue = 'O'
-    whosTurn.innerHTML = "X's turn"
   }
   else {
     currentValue = 'X'
-    whosTurn.innerHTML = "O's turn"
   }
 
-  //more readable put this in update html function
-  buttons[row][column].innerHTML = currentValue
-  buttons[row][column].disabled = true
   board[row][column] = currentValue
 
-  checkMove({ column, row, currentValue, board }, currentValue)
+  updateHTML({ currentValue, row, column, win })
+  checkMove({ column, row, currentValue, board }, { currentValue, row, column })
 }

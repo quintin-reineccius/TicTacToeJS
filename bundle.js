@@ -411,16 +411,16 @@
 
 	module.exports = {
 	  buttons: [[].concat(_toConsumableArray(document.querySelectorAll(".row1 > td > button"))), [].concat(_toConsumableArray(document.querySelectorAll(".row2 > td > button"))), [].concat(_toConsumableArray(document.querySelectorAll(".row3 > td > button")))],
-	  table: document.querySelector('table'),
-	  tbody: document.querySelector('tbody'),
-	  winner: document.getElementById('winner'),
-	  whosTurn: document.getElementById('whos-turn'),
+	  board: [[false, false, false], [false, false, false], [false, false, false]],
 	  wins: {
 	    X: 0,
 	    O: 0,
 	    ties: 0
 	  },
-	  board: [[false, false, false], [false, false, false], [false, false, false]]
+	  table: document.querySelector('table'),
+	  tbody: document.querySelector('tbody'),
+	  winner: document.getElementById('winner'),
+	  whosTurn: document.getElementById('whos-turn')
 	};
 
 /***/ },

@@ -7,7 +7,7 @@ describe('e2e testing', () => {
 
   beforeEach(function() {
     browser.ignoreSynchronization = true
-    browser.get('file:///Users/quintinreineccius/Documents/code/TicTacToeJS/index.html')
+    browser.get('http://localhost:8080/')
   })
 
   it('should play a whole game where X wins / verifies win / clears board', () => {

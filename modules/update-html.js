@@ -1,7 +1,8 @@
 import { buttons, winner, wins, table, tbody, whosTurn } from './config'
 
 export default function updateHTML({ currentValue, row, column, win }){
-  //clean up maybe
+  let holder = document.getElementById(`${currentValue}-holder`)
+
   if(currentValue === 'X'){
     whosTurn.innerHTML = "O's turn"
   }
@@ -13,8 +14,6 @@ export default function updateHTML({ currentValue, row, column, win }){
     buttons[row][column].innerHTML = currentValue
     buttons[row][column].disabled = true
   }
-
-  let holder = document.getElementById(`${currentValue}-holder`)
 
   if(win == true) {
     buttons.forEach(row => {
@@ -29,12 +28,12 @@ export default function updateHTML({ currentValue, row, column, win }){
 
     wins[currentValue] += 1
     holder.innerHTML = wins[currentValue]
-    return winner.innerHTML = `${currentValue} Wins!`
+    winner.innerHTML = `${currentValue} Wins!`
   }
 
   if(currentValue === 'ties'){
     wins[currentValue] += 1
     holder.innerHTML = wins[currentValue]
-    return winner.innerHTML = 'Tie!'
+    winner.innerHTML = 'Tie!'
   }
 }
